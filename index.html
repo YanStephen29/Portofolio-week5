@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Saya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+      <div class="top_header">
+        <div class="logo">
+          <img src="logo.png"alt='Logo Profil'>
+        </div>
+        <h1>MY PORTOFOLIO</h1>
+      </div>
+
+      <nav>
+        <a href="#aboutme">About Me</a>
+        <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
+        <a href="#skill">Skill</a>
+        <a href="#feedback">Feedback</a>
+      </nav>
+    </header>
+
+    <div class="foto">
+        <img src="pas_foto.png" alt="Foto Profil">
+    </div>
+    
+    <section id="aboutme">
+        <h2>About Me</h2>
+        <p>Hello! My name is <b>Yan Stephen Christian Immanuel Hutagalung</b>, and I am currently a 5th-semester Computer Science student at Universitas Pertamina. From a young age, I've always been passionate about technology and the way it shapes the world around us. This passion has driven me to explore various aspects of computing and software development. I thrive on creativity, constantly seeking to innovate and bring fresh ideas to life, whether it's through coding or building new systems. Over the past few years, I have developed a solid foundation in several programming languages, including C++, Python, and Java. These languages have empowered me to approach problem-solving in diverse and efficient ways. My interests span a broad range of fields within computer science, with a particular focus on web development, game development, Internet of Things (IoT), and cybersecurity. Each of these areas excites me because of their potential to create impactful solutions and drive technological advancements. During my time at university, I’ve been fortunate enough to work on several hands-on projects that have helped deepen my understanding of these fields. These projects, which I will elaborate on below, have given me invaluable experience in tackling real-world challenges and collaborating with peers. At this stage in my academic journey, I am focused on personal and professional growth. I am continuously learning new skills and exploring different technologies to prepare myself for the rapidly evolving tech landscape. I’m always open to opportunities to collaborate with others, especially on projects that push the boundaries of innovation and creativity. If you're working on something exciting and think we could create something great together, feel free to reach out!</p>
+        <article>
+          <h2>Multimedia</h2>
+          <video width="320" height="240" controls>
+              <source src="videocontoh.mp4" type="video/mp4">
+              Browser Anda tidak mendukung video.
+          </video>
+
+          <audio controls>
+              <source src="nirvanasongs.mp3" type="audio/mpeg">
+              Browser Anda tidak mendukung audio.
+          </audio>
+      </article>
+      </section>
+
+    <section id="skill">
+        <h2>My Skills</h2>
+        <div class="skills">
+            <img src="https://img.shields.io/badge/-C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white" alt="C++">
+            <img src="https://img.shields.io/badge/-Java-007396?style=flat-square&logo=java&logoColor=white" alt="Java">
+            <img src="https://img.shields.io/badge/-Python-306998?style=flat-square&logo=python&logoColor=white" alt="Python">
+            <img src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+        </div>
+    </section>
+
+    <section id="project">
+        <h2>My Projects</h2>
+        <table>
+            <tr>
+                <th rowspan="2">No</th>
+                <th rowspan="2">Project Name</th>
+                <th colspan="2">Duration</th>
+                <th rowspan="2">Description</th>
+            </tr>
+            <tr>
+                <th>Start</th>
+                <th>Finish</th>
+            </tr>
+            <tr>
+                <td align="center">1</td>
+                <td>Analisis Penyebab Kemiskinan di Jakarta</td>
+                <td>Januari 2023</td>
+                <td>Maret 2023</td>
+                <td>Proyek ini menggunakan konsep matematika numerik...</td>
+            </tr>
+            <tr>
+                <td align="center">2</td>
+                <td>Proyek Aplikasi Pembelajaran</td>
+                <td>April 2023</td>
+                <td>Agustus 2023</td>
+                <td>Proyek ini membuat aplikasi edukasi...</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-container">
+        <div class="contact-item">
+          <a href="mailto:yan.stephen211@gmail.com">
+              <img src="iconemail.png" alt="Email Logo" width="53"></a>
+        </div>
+
+        <div class="contact-item">
+          <a href="https://id.linkedin.com/in/yan-stephen-christian-immanuel-b03217248" target="_blank">
+            <img src="iconlinkeidn.png" alt="LinkedIn Logo" width="40"></a>
+        </div>
+        
+        <div class="contact-item">
+          <a href="https://github.com/YanStephen29" target="_blank">
+            <img src="icongit.png" alt="GitHub Logo" width="50"></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="feedback">
+      <h2>Feedback</h2>
+      <form id="contactForm">
+        <div class="formGroup">
+          <label for="name">Nama:</label>
+          <input type="text" id="name" name="name" placeholder="Nama Lengkap">
+          <p id="nameError" class="MessageError"></p>
+            
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="youremail@gmail.com">
+          <p id="emailError" class="MessageError"></p>
+            
+          <label for="phone">Nomor HP:</label>
+          <input type="tel" id="phone" name="phone" placeholder="08********">
+          <p id="phoneError" class="MessageError"></p>
+            
+          <label for="age">Umur:</label>
+          <input type="number" id="age" name="age" min="17" placeholder="18">
+          <p id="AgeError" class="MessageError"></p>
+            
+          <p>Jenis Kelamin:</p>
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="male">Laki-laki</label>
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">Perempuan</label>
+          <p id="genderError" class="MessageError"></p>
+            
+          <p>Minat:</p>
+          <input type="checkbox" id="programming" name="interest" value="programming">
+          <label for="programming">Pemrograman</label>
+          <input type="checkbox" id="design" name="interest" value="design">
+          <label for="design">Desain</label>
+          <p id="MinatError" class="MessageError"></p>
+          
+          <label for="education">Tingkat Pendidikan:</label>
+          <select id="education" name="education">
+            <option value="">Pilih Pendidikan</option>
+            <option value="sma">SMA</option>
+            <option value="diploma">Diploma</option>
+            <option value="sarjana">Sarjana</option>
+            <option value="magister">Magister</option>  
+          </select>
+          <p id="EduError" class="MessageError"></p>
+
+          <label for="feedback">Saran & Masukkan:</label>
+          <textarea id="feedback" name="feedback" placeholder="Tuliskan saran dan masukkan anda"></textarea>
+          <p id="FeedError" class="MessageError"></p>
+
+          <input type="submit" value="Kirim">
+        </div>
+      </form>
+    </section>
+
+    <footer id="footer">
+        <p class="pforfooter">&copy; 2024 Yan Stephen Christian Immanuel Hutagalung. All rights reserved.</p>
+    </footer>
+</body>
+
+<script src="script.js"></script>
+</html>
