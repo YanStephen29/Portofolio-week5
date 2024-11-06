@@ -73,14 +73,14 @@
                 <td>Analisis Penyebab Kemiskinan di Jakarta</td>
                 <td>Januari 2023</td>
                 <td>Maret 2023</td>
-                <td>Proyek ini menggunakan konsep matematika numerik...</td>
+                <td>Proyek ini menggunakan konsep matematika numerik untuk menganalisis penyebab kemiskinan di Jakarta.</td>
             </tr>
             <tr>
                 <td align="center">2</td>
                 <td>Proyek Aplikasi Pembelajaran</td>
                 <td>April 2023</td>
                 <td>Agustus 2023</td>
-                <td>Proyek ini membuat aplikasi edukasi...</td>
+                <td>Proyek ini membuat aplikasi edukasi untuk membantu siswa SMA kelas 12 memilih jurusan yang tepat saat kuliah.</td>
             </tr>
         </table>
     </section>
@@ -108,60 +108,59 @@
     <section id="feedback">
       <h2>Feedback</h2>
       <form id="contactForm">
-        <div class="formGroup">
-          <label for="name">Nama:</label>
-          <input type="text" id="name" name="name" placeholder="Nama Lengkap">
-          <p id="nameError" class="MessageError"></p>
-            
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" placeholder="youremail@gmail.com">
-          <p id="emailError" class="MessageError"></p>
-            
-          <label for="phone">Nomor HP:</label>
-          <input type="tel" id="phone" name="phone" placeholder="08********">
-          <p id="phoneError" class="MessageError"></p>
-            
-          <label for="age">Umur:</label>
-          <input type="number" id="age" name="age" min="17" placeholder="18">
-          <p id="AgeError" class="MessageError"></p>
-            
-          <p>Jenis Kelamin:</p>
-          <input type="radio" id="male" name="gender" value="male">
-          <label for="male">Laki-laki</label>
-          <input type="radio" id="female" name="gender" value="female">
-          <label for="female">Perempuan</label>
-          <p id="genderError" class="MessageError"></p>
-            
-          <p>Minat:</p>
-          <input type="checkbox" id="programming" name="interest" value="programming">
-          <label for="programming">Pemrograman</label>
-          <input type="checkbox" id="design" name="interest" value="design">
-          <label for="design">Desain</label>
-          <p id="MinatError" class="MessageError"></p>
+          <div class="formGroup">
+              <label for="fullname">Fullname<span style="color: red;">*</span></label>
+              <input type="text" id="fullname" name="fullname" placeholder="Your Name">
+              <span class="error" id="nameError"></span>
           
-          <label for="education">Tingkat Pendidikan:</label>
-          <select id="education" name="education">
-            <option value="">Pilih Pendidikan</option>
-            <option value="sma">SMA</option>
-            <option value="diploma">Diploma</option>
-            <option value="sarjana">Sarjana</option>
-            <option value="magister">Magister</option>  
-          </select>
-          <p id="EduError" class="MessageError"></p>
-
-          <label for="feedback">Saran & Masukkan:</label>
-          <textarea id="feedback" name="feedback" placeholder="Tuliskan saran dan masukkan anda"></textarea>
-          <p id="FeedError" class="MessageError"></p>
-
-          <input type="submit" value="Kirim">
-        </div>
+              <label for="email">Email<span style="color: red;">*</span></label>
+              <input type="email" id="email" name="email" placeholder="youremail@example.com">
+              <span class="error" id="emailError"></span>
+          
+              <label for="phoneNumber">Phone Number<span style="color: red;">*</span></label>
+              <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Your Phone Number">
+              <span class="error" id="phoneError"></span>
+  
+              <label>Gender<span style="color: red;">*</span></label><br>
+              <input type="radio" id="male" name="gender" value="Male">
+              <label for="male">Male</label><br>
+              <input type="radio" id="female" name="gender" value="Female">
+              <label for="female">Female</label><br>
+              <span class="error" id="genderError"></span>
+  
+              <label for="interest">Interest<span style="color: red;">*</span></label><br>
+              <input type="checkbox" id="programming" name="interest" value="Programming">
+              <label for="programming">Programming</label><br>
+              <input type="checkbox" id="design" name="interest" value="Design">
+              <label for="design">Design</label><br>
+              <span class="error" id="interestError"></span>
+              
+              <label for="educationLevel">Education Level<span style="color: red;">*</span></label><br>
+              <input type="radio" id="sma" name="educationLevel" value="SMA">
+              <label for="sma">SMA</label><br>
+              <input type="radio" id="diploma" name="educationLevel" value="Diploma">
+              <label for="diploma">Diploma</label><br>
+              <input type="radio" id="sarjana" name="educationLevel" value="Sarjana">
+              <label for="sarjana">Sarjana</label><br>
+              <input type="radio" id="magister" name="educationLevel" value="Magister">
+              <label for="magister">Magister</label><br>
+              <span class="error" id="educationLevelError"></span>
+  
+              <label for="message">Message<span style="color: red;">*</span></label>
+              <textarea id="message" name="message" rows="4" placeholder="Write your message here..."></textarea>
+              <span class="error" id="messageError"></span>
+  
+              <input type="submit" value="Send">
+              <input type="reset" value="Reset">
+          </div>
       </form>
-    </section>
+  </section>
+
 
     <footer id="footer">
         <p class="pforfooter">&copy; 2024 Yan Stephen Christian Immanuel Hutagalung. All rights reserved.</p>
     </footer>
-</body>
-
-<script src="script.js"></script>
+    
+    <script src="script.js"></script>
+  </body>
 </html>

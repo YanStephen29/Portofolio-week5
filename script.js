@@ -1,105 +1,80 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contactForm');
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contactForm");
 
-    form.addEventListener('submit', function(event) {
+    form.addEventListener("submit", function(event) {
         event.preventDefault();
 
-        clearErrors();
+        document.getElementById("nameError").textContent = "";
+        document.getElementById("emailError").textContent = "";
+        document.getElementById("phoneError").textContent = "";
+        document.getElementById("messageError").textContent = "";
+        document.getElementById("genderError").textContent = "";
+        document.getElementById("interestError").textContent = "";
+        document.getElementById("educationLevelError").textContent = "";
 
-        let isValid = true;
+        const fullname = document.getElementById("fullname").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phoneNumber = document.getElementById("phoneNumber").value.trim();
+        const message = document.getElementById("message").value.trim();
+        const gender = document.querySelector('input[name="gender"]:checked');
+        const interests = document.querySelectorAll('input[name="interest"]:checked');
+        const educationLevel = document.querySelector('input[name="educationLevel"]:checked');
 
-        const nameInput = document.getElementById('name');
-        console.log("Nama Input:", nameInput.value.trim());
-        if (!nameInput.value.trim()) {
-            showError(nameInput, 'Nama harus diisi');
-            isValid = false;
-        }
-
-        const emailInput = document.getElementById('email');
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        console.log("Email Input:", emailInput.value.trim());
-        if (!emailInput.value.trim() || !emailPattern.test(emailInput.value.trim())) {
-            showError(emailInput, 'Email tidak valid');
-            isValid = false;
+        const phonePattern = /^[0-9]{10,15}$/;
+
+        let valid = true;
+
+        if (fullname === "") {
+            document.getElementById("nameError").textContent = "Name is required.";
+            valid = false;
         }
 
-        const phoneInput = document.getElementById('phone');
-        const phonePattern = /^\d{10,}$/; 
-        if (!phoneInput.value.trim() || !phonePattern.test(phoneInput.value.trim())) {
-            showError(phoneInput, 'Nomor HP tidak valid (minimal 10 digit)');
-            isValid = false;
+        if (!emailPattern.test(email)) {
+            document.getElementById("emailError").textContent = "Please enter a valid email address.";
+            valid = false;
         }
 
-        const ageInput = document.getElementById('age');
-        if (!ageInput.value.trim() || ageInput.value < 17) {
-            showError(ageInput, 'Umur harus minimal 17');
-            isValid = false;
+        if (!phonePattern.test(phoneNumber)) {
+            document.getElementById("phoneError").textContent = "Please enter a valid phone number (10-15 digits).";
+            valid = false;
         }
 
-        const genderInputs = document.querySelectorAll('input[name="gender"]');
-        const genderChecked = Array.from(genderInputs).some(input => input.checked);
-        if (!genderChecked) {
-            showError(genderInputs[0], 'Jenis kelamin harus dipilih');
-            isValid = false;
+        if (message === "") {
+            document.getElementById("messageError").textContent = "Message is required.";
+            valid = false;
         }
 
-        const interestInputs = document.querySelectorAll('input[name="interest"]');
-        const interestChecked = Array.from(interestInputs).some(input => input.checked);
-        if (!interestChecked) {
-            showError(interestInputs[0], 'Minimal satu minat harus dipilih');
-            isValid = false;
+        if (!gender) {
+            document.getElementById("genderError").textContent = "Please select a gender.";
+            valid = false;
         }
 
-        const educationInput = document.getElementById('education');
-        if (!educationInput.value) {
-            showError(educationInput, 'Tingkat pendidikan harus dipilih');
-            isValid = false;
+        if (interests.length === 0) {
+            document.getElementById("interestError").textContent = "Please select at least one interest (Programming or Design).";
+            valid = false;
         }
 
-        const feedbackInput = document.getElementById('feedback');
-        if (!feedbackInput.value.trim()) {
-            showError(feedbackInput, 'Saran dan masukkan harus diisi');
-            isValid = false;
+        if (!educationLevel) {
+            document.getElementById("educationLevelError").textContent = "Please select an education level.";
+            valid = false;
         }
 
-        if (isValid) {
-            sendToWhatsApp({
-                name: nameInput.value,
-                email: emailInput.value,
-                phone: phoneInput.value,
-                age: ageInput.value,
-                gender: Array.from(genderInputs).find(input => input.checked).value,
-                interests: Array.from(interestInputs).filter(input => input.checked).map(input => input.value).join(', '),
-                education: educationInput.value,
-                feedback: feedbackInput.value
-            });
+        if (valid) {
+            const interestText = Array.from(interests).map(i => i.value).join(", ");
+            const educationValue = educationLevel ? educationLevel.value : "";
+            const whatsappMessage = `
+Name: ${fullname}
+Email: ${email}
+Phone: ${phoneNumber}
+Gender: ${gender.value}
+Interest: ${interestText}
+Education Level: ${educationValue}
+Message: ${message}
+`;
+            const whatsappUrl = `https://wa.me/6281291468340?text=${encodeURIComponent(whatsappMessage)}`;
+
+            window.open(whatsappUrl, '_blank');
         }
     });
-
-    function sendToWhatsApp(document) {
-        const phoneNumber = '6281291468340';
-        const message = `Nama: ${data.name}%0A` +
-                        `Email: ${data.email}%0A` +
-                        `Nomor HP: ${data.phone}%0A` +
-                        `Umur: ${data.age}%0A` +
-                        `Jenis Kelamin: ${data.gender}%0A` +
-                        `Minat: ${data.interests}%0A` +
-                        `Tingkat Pendidikan: ${data.education}%0A` +
-                        `Saran: ${data.feedback}`;
-        
-        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-    }
-
-    function showError(input, message) {
-        const errorMessage = document.createElement('p');
-        errorMessage.className = 'MessageError';
-        errorMessage.innerText = message;
-        input.parentNode.insertBefore(errorMessage, input.nextSibling);
-    }
-
-    function clearErrors() {
-        const errorMessages = document.querySelectorAll('.MessageError');
-        errorMessages.forEach(error => error.remove());
-    }
 });
